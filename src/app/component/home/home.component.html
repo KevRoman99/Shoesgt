@@ -1,0 +1,21 @@
+<section id="books" class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let shoes of shoess">
+        <div class="card_book">
+          <div class="card">
+            <div class="card-body text-center">
+              <p>
+                <img class="img-fluid" src="{{shoes.photoUrl}}" alt="{{shoes.name}}">
+              </p>
+              <h4 routerLink="/news/{{shoes.id}}" class="card-title">{{shoes.name}}</h4>
+              <p class="card-text">
+                {{shoes.descripcion }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
