@@ -1,11 +1,13 @@
 export interface shoesInterface{
     id?: string;
     // titulo?: string;
-    name?: string;
+    name?: string; //s
     descripcion?: string;
     // desarrollo?: string;
-    photoUrl?: string;
-    precio?: Number;
-    tallas?: Array<string>;
-    existencias?: Number;
+    photoUrl?: string;//s
+    precio?: Number;//s
+    tallas?: Array<string>;//s
+    existencias?: Number;//s
+    marca?: string;//s
+    oferta?:string;//s
 }

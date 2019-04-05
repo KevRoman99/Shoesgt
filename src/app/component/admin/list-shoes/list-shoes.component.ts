@@ -20,9 +20,16 @@ export class ListShoesComponent implements OnInit {
       this.shoes = news
     });
   }
-  onDeleteNews(){
+  onDeleteShoes(idShoes: string){
     console.log('Delete ');
+    const confirmacion = confirm('Are you sure?');
+    if(confirmacion){
+      this.dataApi.deleteShoes(idShoes);
+    }
+    
   }
-  
+  onPreUpdate(shoes: shoesInterface){
+    this.dataApi.selectedShoes = Object.assign({},shoes);
+  }
 
 }

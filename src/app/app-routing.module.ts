@@ -10,7 +10,7 @@ import { Page404Component } from './component/page404/page404.component';
 
 const routes: Routes = [
   {path: '',component: HomeComponent}, 
-  {path: 'news/:id', component: DetailsShoesComponent},
+  {path: 'shoes/:id', component: DetailsShoesComponent},
   {path: 'admin/list-shoes', component: ListShoesComponent},//TODO: only user auth
   {path: 'user/login', component: LoginComponent},
   {path: 'user/register', component: RegisterComponent},

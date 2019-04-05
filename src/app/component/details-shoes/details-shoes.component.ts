@@ -18,7 +18,7 @@ export class DetailsShoesComponent implements OnInit {
    this.getDetaills(idShoes);
   }
   getDetaills(idShoes: string): void{
-    this.dataApi.getOneNoticia(idShoes).subscribe( shoes =>{
+    this.dataApi.getOneShoes(idShoes).subscribe( shoes =>{
       // console.log('Detail news', news);
       this.shoes = shoes;
     });
