@@ -1,19 +1,36 @@
 <section id="books" class="mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let shoes of shoess">
-        <div class="card_book">
-          <div class="card">
-            <div class="card-body text-center">
-              <p>
-                <img class="img-fluid" src="{{shoes.photoUrl}}" alt="{{shoes.name}}">
-              </p>
-              <h4 routerLink="/news/{{shoes.id}}" class="card-title">{{shoes.name}}</h4>
-              <p class="card-text">
-                {{shoes.descripcion }}
-              </p>
+  <div class="container page-wrapper">
+    <div class="page-inner">
+      <div class="row">
+        <div *ngFor="let shoes of shoess">
+          <!-- HTML PARA AGREGAR UN PRODUCTO -->
+          <div class="el-wrapper">
+            <div class="box-up">
+              <img class="img" src="{{shoes.photoUrl}}" alt="{{shoes.name}}">
+              <div class="img-info">
+                <div class="info-inner">
+                  <span class="p-name" routerLink="/shoes/{{shoes.id}}">{{shoes.name}}</span>
+                  <span class="p-company">{{shoes.descripcion}}</span>
+                </div>
+                <div class="a-size">Available sizes : <span class="size">{{shoes.tallas}}
+                </span></div>
+              </div>
+            </div>
+
+            <div class="box-down">
+              <div class="h-bg">
+                <div class="h-bg-inner"></div>
+              </div>
+
+              <a class="cart" href="http://localhost:4200/cart">
+                <span class="price">Q.{{shoes.precio}}</span>
+                <span class="add-to-cart">
+                  <span class="txt">Add in cart</span>
+                </span>
+              </a>
             </div>
           </div>
+          <!-- FIN DE HTML PARA AGREGAR PRODUCTO -->
         </div>
       </div>
     </div>

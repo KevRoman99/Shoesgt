@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+<!--<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
   <a class="navbar-brand" routerLink="/">{{app_name}}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -17,6 +17,44 @@
       <li class="nav-item" *ngIf="!isLogged">
         <a class="nav-link" routerLink="/user/register">Register
         </a>
+      </li>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/user/profile">Profile</a>
+      </li>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/admin/list-shoes">List Books</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLogged">
+        <a class="nav-link" routerLink="/user/login">Login
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="isLogged">
+        <a href="#" class="nav-link" (click)="onLogout()">Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <i class="navbar-brand" href="#" routerLink="/principal">{{app_name}}</i>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="mainNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/offers">Offerts</a>
+      </li>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/products">Products</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" *ngIf="!isLogged">
+        <a class="nav-link" routerLink="/user/register">Register</a>
       </li>
       <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" routerLink="/user/profile">Profile</a>

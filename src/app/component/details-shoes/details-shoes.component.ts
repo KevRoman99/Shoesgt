@@ -23,4 +23,5 @@ export class DetailsShoesComponent implements OnInit {
       this.shoes = shoes;
     });
   }
+
 }

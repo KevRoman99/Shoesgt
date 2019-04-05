@@ -1,4 +1,4 @@
-<section id="news" class="mt-5">
+<!--<section id="shoes" class="mt-5">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
@@ -6,17 +6,41 @@
           <div class="card">
             <div class="card-body text-center">
               <p>
-                <img class="img-fluid" src="{{news.photoUrl}}" alt="{{news.titulo}}">
+                <img class="img-fluid" src="{{shoes.photoUrl}}" alt="{{shoes.titulo}}">
               </p>
-              <h4 routerLink="/news/{{news.id}}" class="card-title">{{news.titulo}}</h4>
+              <h4 routerLink="/shoes/{{shoes.id}}" class="card-title">{{shoes.titulo}}</h4>
               <p class="card-text">
-                {{news.descripcion}}
+                {{shoes.descripcion}}
               </p>
-              <!-- <a href="{{book.link_amazon}}" class="btn btn-block btn-primary" target="_blank">Buy</a> -->
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section>-->
+
+<br>
+<div class="content">
+    <h1 class="heading">descripcion</h1>
+    <p class="description">¡Girala para leer mas sobre este producto!</p>
+    <a class="card">
+      <div class="front">
+        <img class="front" src="{{shoes.photoUrl}}">
+      </div>
+      <div class="back">
+        <div>
+            <p class="card-text">
+              {{shoes.descripcion}}
+            </p>
+        </div>
+      </div>
+    </a>
+    <div class="flex">
+        <a href="#0" class="bttn">¡Agregar a la compra!</a>
+      </div> <br>
+      <div class="flex">
+          <a href="/products" class="bttn">¡Regresar!</a>
+        </div>
+  </div>
+  
