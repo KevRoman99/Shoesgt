@@ -1,4 +1,4 @@
-<section id="register" class="mb-5 mt-5">
+<!--<section id="register" class="mb-5 mt-5">
   <div class="container">
     <div class="row">
 
@@ -63,4 +63,47 @@
       </div>
     </div>
   </div>
-</section>
+</section>-->
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet' type='text/css'>
+<div class='login'>
+  <br>
+  <h2 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Register</h2>
+  <form #formRegister="ngForm" (ngSubmit)="onAddUser()">
+  <div class="alert alert-danger" role="alert" *ngIf="isError">{{msgError}}</div>
+  <input type="text" id="email" [(ngModel)]="email" name="email"  placeholder="Email" required minlength="8">
+  <div class="alert alert-danger" role="alert" *ngIf="email.touched && !email.valid">
+      <div *ngIf="email.errors.required">Email is required</div>
+      <div *ngIf="email.errors.minlength">Email must be at least 8 characters</div>
+  </div>
+  <input type="password" id="password" [(ngModel)]="password" name="password" placeholder="Password" required minlength="5" maxlength="10">
+  <div class="alert alert-danger" role="alert" *ngIf="password.touched && !password.valid">
+      <div *ngIf="password.errors.required">Password is required</div>
+      <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+  </div>
+  <br><br>
+      <a class="text">Seleccionar imagen:</a>
+      <input type="file" accept=".png, .jpg" (change)="onUpload($event)">
+  <br><br>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-sucess" role="progressbar" [style.width]="(uploadPercent | async) + '%'">
+    </div>
+  </div>
+    <br>
+    <input #imageUser type="hidden" [value]="urlImage | async">
+    <button *ngIf="urlImage | async; else btnDisable"
+    type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+    <ng-template #btnDisable>
+        <button type="submit" disabled=true class="btn btn-lg btn-secondary btn-block">Register</button>
+  </ng-template>
+  <br>
+  <a routerLink="/user/login" class="text">Do you have account?</a>
+  <div class="form-group">
+      <button class="btn btn-block btn-lg btn-social btn-facebook animated" (click)="onLoginFacebook()">
+        <span class="fab fa-facebook"></span> Facebook</button>
+      <button class="btn btn-block btn-lg btn-social btn-google animated" (click)="onLoginGoogle()">
+        <span class="fab fa-google"></span> Google</button>
+    </div>
+</form>
+</div>
