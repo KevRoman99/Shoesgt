@@ -12,14 +12,14 @@ export class ModalComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
   @ViewChild('btnClose') btnClose: ElementRef;
-  // @Input() userUid: string;
+  @Input() userUid: string;
   ngOnInit() {
   }
 
   onSaveShoes(formShoes: NgForm): void {
     if (formShoes.value.id == null) {
       // New 
-      // formShoes.value.userUid = this.userUid;
+      formShoes.value.userUid = this.userUid;
       this.dataApi.addShoes(formShoes.value);
     } else {
       // Update

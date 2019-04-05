@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './component/users/login/login.component';
 import { ListShoesComponent } from './component/admin/list-shoes/list-shoes.component';
 import { HomeComponent } from './component/home/home.component';
@@ -12,11 +13,11 @@ import { OffersComponent } from './component/offers/offers.component';
 const routes: Routes = [
   {path: 'products',component: HomeComponent}, 
   {path: 'shoes/:id', component: DetailsShoesComponent},
-  {path: 'admin/list-shoes', component: ListShoesComponent},//TODO: only user auth
+  {path: 'admin/list-shoes', component: ListShoesComponent, canActivate: [AuthGuard]},//TODO: only user auth
   {path: 'user/login', component: LoginComponent},
   {path: 'user/register', component: RegisterComponent},
-  {path: 'user/profile', component: ProfileComponent},//TODO: only user auth
-  {path: 'offers', component: OffersComponent},
+  {path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard]},//TODO: only user auth
+  {path: 'offers', component: OffersComponent, canActivate: [AuthGuard]},
   {path: '**', component: Page404Component}
 ];
 

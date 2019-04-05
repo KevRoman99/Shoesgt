@@ -13,6 +13,7 @@
       <div class="modal-body">
         <form name="formShoes" #formShoes="ngForm" (ngSubmit)="onSaveShoes(formShoes)">
           <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedShoes.id">
+          <input type="text" name="userUid" [value]="userUid">
           <input type="hidden" name="userUid" [value]="userUid">
           <div class="form-group">
             <label for="name" class="col-form-label">Nombre</label>
