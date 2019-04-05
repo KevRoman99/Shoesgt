@@ -1,41 +1,64 @@
-<div class="modal fade" id="modalNews" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Registry</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" name="name">
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="talla">Talla:</label>
-              <select class="form-control" name="talla">
-                <option value="30">30</option>
-                <option value="31">31</option>
-              </select>
+<div class="modal fade" id="modalShoes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            {{ !this.dataApi.selectedShoes.id ? 'New Shoes' : 'Update Shoes'}}
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form name="formShoes" #formShoes="ngForm" (ngSubmit)="onSaveShoes(formShoes)">
+            <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedShoes.id">
+            <input type="hidden" name="userUid" [value]="userUid">
+            <div class="form-group">
+              <label for="name" class="col-form-label">Nombre</label>
+              <input type="text" class="form-control" name="name" [(ngModel)]="this.dataApi.selectedShoes.name">
             </div>
-            <div class="form-group col-md-6">
-              <label for="precio">Precio:</label>
-              <input type="text" name="precio" class="form-control" placeholder="Ingrese el precio">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="tallas">Talla</label>
+                <select name="tallas" class="form-control" [(ngModel)]="this.dataApi.selectedShoes.tallas">
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="precio">Precio</label>
+                <input type="text" name="precio" class="form-control" placeholder="0,00€" [(ngModel)]="this.dataApi.selectedShoes.precio">
+              </div>
             </div>
-          </div>  
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="photoUrl">Foto</label>
+                <input type="text" name="photoUrl" class="form-control" placeholder="Foto" [(ngModel)]="this.dataApi.selectedShoes.photoUrl">
+              </div>
+              <div class="form-group col-md-6" >
+                <label for="oferta">Oferta</label>
+                <select name="oferta" class="form-control" [(ngModel)]="this.dataApi.selectedShoes.oferta">
+                  <option value="1">Sí</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="existencia">Existencia</label>
+                <input type="text" min="10" max="280" name="existencia" class="form-control" placeholder="Existencia" [(ngModel)]="this.dataApi.selectedShoes.existencia">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="descripcion" class="col-form-label">Descripcion:</label>
+              <textarea class="form-control" name="descripcion" [(ngModel)]="this.dataApi.selectedShoes.descripcion"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save Shoes</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 </div>

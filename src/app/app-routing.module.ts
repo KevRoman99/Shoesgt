@@ -7,6 +7,7 @@ import { DetailsShoesComponent } from './component/details-shoes/details-shoes.c
 import { RegisterComponent } from './component/users/register/register.component';
 import { ProfileComponent } from './component/users/profile/profile.component';
 import { Page404Component } from './component/page404/page404.component';
+import { OffersComponent } from './component/offers/offers.component';
 
 const routes: Routes = [
   {path: 'products',component: HomeComponent}, 
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'user/login', component: LoginComponent},
   {path: 'user/register', component: RegisterComponent},
   {path: 'user/profile', component: ProfileComponent},//TODO: only user auth
+  {path: 'offers', component: OffersComponent},
   {path: '**', component: Page404Component}
 ];
 

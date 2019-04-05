@@ -1,42 +1,42 @@
 <div class="row mt-5">
-  <div class="col">
-    <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalNews" (click)="resetForm()">New Shoes</button>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <!-- <th scope="col">Autor</th> -->
-          <th scope="col">Talla</th>
-          <th scope="col">Descripcion</th>
-          <th scope="col">precio</th>
-          <!-- <th scope="col">Oferta</th> -->
-          <th scope="col">&nbsp;</th>
-          <th scope="col">&nbsp;</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr *ngFor="let shoes of shoes;  index as i">
-
-          <th scope="row"> {{i+1}}</th>
-          <td>{{shoes.name}}</td>
-          <!-- <td>{{book.autor}}</td> -->
-          <td>{{shoes.tallas}}</td>
-          <td>{{shoes.descripcion}}</td>
-          <td>Q.{{shoes.precio}}</td>
-          <!-- <td>{{book.oferta == 1 ? 'SI' : 'NO'}}</td> -->
-          <td>
-            <button class="btn btn-primary" (click)="onPreUpdateBook(book)" data-toggle="modal" data-target="#modalBook">Update</button>
-          </td>
-          <td>
-            <a href="/admin/list-books" class="btn btn-danger" (click)="onDeleteBook(news.id)">Delete</a>
-          </td>
-        </tr>
-
-      </tbody>
-    </table>
-    <!--<pagination-controls (pageChange)="pageActual = $event"></pagination-controls>-->
+    <div class="col">
+      <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalShoes" >New Shoes</button>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <!-- <th scope="col">Autor</th> -->
+            <th scope="col">Talla</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">precio</th>
+            <!-- <th scope="col">Oferta</th> -->
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor="let shoes of shoes;  index as i">
+  
+            <th scope="row"> {{i+1}}</th>
+            <td>{{shoes.name}}</td>
+            <!-- <td>{{book.autor}}</td> -->
+            <td>{{shoes.tallas}}</td>
+            <td>{{shoes.descripcion}}</td>
+            <td>Q.{{shoes.precio}}</td>
+            <td>{{shoes.oferta == 1 ? 'SI' : 'NO'}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="onPreUpdate(shoes)" data-toggle="modal" data-target="#modalShoes">Update</button>
+            </td>
+            <td>
+              <a  class="btn btn-danger" (click)="onDeleteShoes(shoes.id)">Delete</a>
+            </td>
+          </tr>
+  
+        </tbody>
+      </table>
+      <!--<pagination-controls (pageChange)="pageActual = $event"></pagination-controls>-->
+    </div>
   </div>
-</div>
-<app-modal></app-modal>
+  <app-modal></app-modal>

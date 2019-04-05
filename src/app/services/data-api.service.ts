@@ -18,7 +18,9 @@ export class DataApiService {
   private shoes: Observable<shoesInterface[]>;
   private shoesDoc: AngularFirestoreDocument<shoesInterface>;
   private shoe: Observable<shoesInterface>;
-
+  public selectedShoes: shoesInterface = {
+    id: null
+  };
   getAllShoes(){
     return this.shoes = this.shoesCollection.snapshotChanges()
     .pipe(map(changes =>{
@@ -29,7 +31,7 @@ export class DataApiService {
       })
     }))
   }
-  getOneNoticia(idShoes: string){
+  getOneShoes(idShoes: string){
     this.shoesDoc = this.afs.doc<shoesInterface>(`shoes/${idShoes}`);
     return this.shoe = this.shoesDoc.snapshotChanges().pipe(map(action =>{
       if(action.payload.exists == false){
@@ -41,15 +43,15 @@ export class DataApiService {
       }
     }));
   }
-  addNoticias(shoes : shoesInterface):void{
+  addShoes(shoes : shoesInterface):void{
     this.shoesCollection.add(shoes);
   }
-  updateNoticias(shoes: shoesInterface):void{
+  updateShoes(shoes: shoesInterface):void{
     let idShoes = shoes.id;
     this.shoesDoc = this.afs.doc<shoesInterface>(`shoes/${idShoes}`);
     this.shoesDoc.update(shoes);
   }
-  deleteNoticias(idShoes: String):void{
+  deleteShoes(idShoes: String):void{
     this.shoesDoc = this.afs.doc<shoesInterface>(`shoes/${idShoes}`);
     this.shoesDoc.delete();
   }
