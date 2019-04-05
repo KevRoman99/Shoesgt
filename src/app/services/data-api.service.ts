@@ -11,8 +11,6 @@ import { Action } from 'rxjs/internal/scheduler/Action';
 export class DataApiService {
 
   constructor(private afs: AngularFirestore) {
-    this.shoesCollection = afs.collection<shoesInterface>('shoes');
-    this.shoes = this.shoesCollection.valueChanges();
    }
   private shoesCollection: AngularFirestoreCollection<shoesInterface>;
   private shoes: Observable<shoesInterface[]>;
@@ -22,6 +20,7 @@ export class DataApiService {
     id: null
   };
   getAllShoes(){
+    this.shoesCollection = this.afs.collection<shoesInterface>('shoes');
     return this.shoes = this.shoesCollection.snapshotChanges()
     .pipe(map(changes =>{
       return changes.map(action =>{
