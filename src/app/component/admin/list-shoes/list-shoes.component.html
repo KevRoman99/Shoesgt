@@ -26,12 +26,22 @@
           <td>{{shoes.descripcion}}</td>
           <td>Q.{{shoes.precio}}</td>
           <td>{{shoes.oferta == 1 ? 'SI' : 'NO'}}</td>
-          <td>
+          <td *ngIf="shoes.userUid == userUid || isAdmin == true; else noOwner"> 
             <button class="btn btn-primary" (click)="onPreUpdate(shoes)" data-toggle="modal" data-target="#modalShoes">Update</button>
           </td>
-          <td>
+          <ng-template #noOwner>
+            <td>
+              <a  class="btn btn-primary" disable ="true">Update</a>
+            </td>
+          </ng-template>
+          <td *ngIf="isAdmin == true; else noAdmin">
             <a  class="btn btn-danger" (click)="onDeleteShoes(shoes.id)">Delete</a>
           </td>
+          <ng-template #noAdmin>
+            <td>
+              <a  class="btn btn-danger" disable = "true">Delete</a>
+            </td>
+          </ng-template>
         </tr>
 
       </tbody>
@@ -39,4 +49,4 @@
     <!--<pagination-controls (pageChange)="pageActual = $event"></pagination-controls>-->
   </div>
 </div>
-<app-modal></app-modal>
+<app-modal [userUid]="userUid"></app-modal>

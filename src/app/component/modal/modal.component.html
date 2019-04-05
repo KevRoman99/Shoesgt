@@ -12,6 +12,7 @@
         <div class="modal-body">
           <form name="formShoes" #formShoes="ngForm" (ngSubmit)="onSaveShoes(formShoes)">
             <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedShoes.id">
+            <input type="text" name="userUid" [value]="userUid">
             <input type="hidden" name="userUid" [value]="userUid">
             <div class="form-group">
               <label for="name" class="col-form-label">Nombre</label>
@@ -51,7 +52,7 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="existencia">Existencia</label>
-                <input type="text" name="existencia" class="form-control" placeholder="Existencia" [(ngModel)]="this.dataApi.selectedShoes.existencia">
+                <input type="text"  name="existencia" class="form-control" placeholder="Existencia" [(ngModel)]="this.dataApi.selectedShoes.existencia">
               </div>
 
 
